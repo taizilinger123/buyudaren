@@ -14,12 +14,12 @@ import javax.swing.JPanel;
 
 public class Pool extends JPanel {
 
-	private BufferedImage backgroud;
+	private BufferedImage background;
 	private Net net;
 	private Fish[] all;
 
 	public Pool() throws Exception {
-		backgroud = ImageIO.read(new File("bg.jpg"));
+		background = ImageIO.read(new File("bg.jpg"));
 		net = new Net("net09.png");
 		all = new Fish[] { 
 				new Fish("fish01"), new Fish("fish02"), 
@@ -31,7 +31,7 @@ public class Pool extends JPanel {
 	}
 
 	public void paint(Graphics g) {
-		g.drawImage(backgroud, 0, 0, null);
+		g.drawImage(background, 0, 0, null);
 		for (Fish fish : all) {
 			int x = fish.getX();
 			int y = fish.getY();
@@ -46,16 +46,16 @@ public class Pool extends JPanel {
 	}
 
 	public void action() throws Exception {
-		// Æô¶¯Ã¿ÌõÓã£¬ÈÃÓã×Ô¼ºÈ¥ÓÎ¶¯(run)
+		// å¯åŠ¨æ¯æ¡é±¼ï¼Œè®©é±¼è‡ªå·±å»æ¸¸åŠ¨(run)
 		for (Fish fish : all) {
-			// Thread Ïß³ÌAPI,¿ÉÒÔÆô¶¯Óã×Ô¼ºÈ¥ÓÎ¶¯
+			// Thread çº¿ç¨‹API,å¯ä»¥å¯åŠ¨é±¼è‡ªå·±å»æ¸¸åŠ¨
 			Thread t = new Thread(fish);
-			t.start();// Æô¶¯(start)Óã×Ô¼ºÈ¥ÓÎ¶¯(run())
+			t.start();// å¯åŠ¨(start)é±¼è‡ªå·±å»æ¸¸åŠ¨(run())
 		}
 
 		MouseAdapter l = new MouseAdapter() {
 			public void mousePressed(MouseEvent e) {
-				catchFish();// ×¥Óã
+				catchFish();// æŠ“é±¼
 			}
 
 			public void mouseMoved(MouseEvent e) {
@@ -67,7 +67,7 @@ public class Pool extends JPanel {
 			}
 
 			public void mouseEntered(MouseEvent e) {
-				net.setShow(true);// ShowÏÔÊ¾
+				net.setShow(true);// Showæ˜¾ç¤º
 			}
 
 			public void mouseExited(MouseEvent e) {
@@ -78,7 +78,7 @@ public class Pool extends JPanel {
 		this.addMouseMotionListener(l);
 
 		while (true) {
-			repaint();// ¹Û²ìÓãÈ¥ÄÄÀïÁË£¡
+			repaint();// è§‚å¯Ÿé±¼å»å“ªé‡Œäº†ï¼
 			Thread.sleep(1000 / 24);
 		}
 	}
@@ -95,7 +95,7 @@ public class Pool extends JPanel {
 	}
 
 	public static void main(String[] args) throws Exception {
-		JFrame frame = new JFrame("ÀÌÓã");
+		JFrame frame = new JFrame("æé±¼");
 		frame.setSize(800, 520);
 		frame.setLocationRelativeTo(null);
 		Pool pool = new Pool();
