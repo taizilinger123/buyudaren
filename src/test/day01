@@ -1,0 +1,15 @@
+https://www.cnblogs.com/Renyi-Fan/p/7220327.html俄罗斯方块参考
+OOP 面向对象编程
+接口(interface)
+1)相当于一种抽象类
+2）属性只能是常量，方法只能是抽象方法的
+3）语法接近于抽象类
+4）子类实现(implement)接口(就是子类继承接口)
+5）接口可以实现"多继承"的逻辑关系
+
+能跑的  Runner maxSpeed()
+猎手   Hunter  hunt()
+猫     Cat      
+
+猫是猎手也能跑
+
